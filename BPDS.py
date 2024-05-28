@@ -221,23 +221,23 @@ class BPDS_port(object):
 
         
 
-'''
-    Example Code after reading in relevant data and models
-    
-    Attributes
-    ----------
-    mods : list
-        list of BPDS_TVAR models, including a baseline at index 0
-    r : float
-        Initial portfolio return target
-    s_imp : array_like
-        Percent improvement targets for setting the BPDS target score, for example s_imp = [1.05, .9] 
-        indicates a 5% improvement in return and a 10% reduction in the variance
-    alpha : float
-        Default is 1, defines how much the BMA weights should decay over time 
-    data_pct: pandas DataFrame
-        Contains asset returns up to time T
-'''
+"""
+Example Code after reading in relevant data and models
+
+Attributes
+----------
+mods : list
+    list of BPDS_TVAR models, including a baseline at index 0
+r : float
+    Initial portfolio return target
+s_imp : array_like
+    Percent improvement targets for setting the BPDS target score, for example s_imp = [1.05, .9] 
+    indicates a 5% improvement in return and a 10% reduction in the variance
+alpha : float
+    Default is 1, defines how much the BMA weights should decay over time 
+data_pct: pandas DataFrame
+    Contains asset returns up to time T
+"""
 
 BPDS = BPDS_port(mods, r=.1, s_imp=np.array([1.05, .9]), alpha=.8)
 BPDS.fit(T = len(data_pct), verbose = True)
